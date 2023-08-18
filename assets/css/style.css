@@ -1,0 +1,227 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+html{
+    background-color: #181818;
+    color: #e7e7e7;
+    scroll-behavior: smooth;
+}
+
+.container{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem 1rem 5rem;
+    gap: 1rem;
+}
+
+form{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    gap: 1rem;
+    width: 100%;
+}
+
+.inputBtnSubmit{
+    display: flex;
+    width: 50%;
+    position: relative;
+    background-color: rgb(54, 54, 54);
+    border-radius: .2rem;
+}
+
+input{
+    background-color: transparent;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-top-left-radius: .2rem;
+    border-bottom-left-radius: .2rem;
+    padding: 0 .3rem 0 .5rem;
+    caret-color: #e7e7e7;
+    color: #e7e7e7;
+    letter-spacing: .5px;
+}
+
+input::placeholder{
+    padding-left: .2rem;
+    letter-spacing: .5px;
+}
+
+button{
+    background-color: rgb(156, 15, 156);
+    border: none;
+    padding: .8rem 1rem;
+    color: #e7e7e7;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+button:nth-child(3){
+    border-top-right-radius: .2rem;
+    border-bottom-right-radius: .2rem;
+}
+
+button:nth-child(3):hover,
+.btnClear:hover{
+    opacity: .8;
+}
+
+input:not(:placeholder-shown) + .btnReset{
+    display: block;
+}
+
+.btnReset{
+    background-color: transparent;
+    padding: 0 .8rem;
+    display: none;
+    transition: all .3s ease-in-out;
+}
+
+.btnReset:hover{
+    background-color: rgb(187, 67, 67);
+}
+
+.btnReset i{
+    font-size: 1.3rem;
+}
+
+.btnClear{
+    border-radius: .2rem;
+    letter-spacing: .6px;
+    font-weight: 700;
+}
+
+.info{
+    display: none;
+    flex-direction: column;
+    padding: .5rem;
+    align-items: center;
+    margin: 1rem;
+    width: 100%;
+}
+
+ul{
+    width: 100%;
+}
+
+li{
+    margin: .6rem 0;
+    border: 1px solid rgb(125, 56, 125);
+    border-radius: 3px;
+    word-break: break-all;
+    text-align: center;
+    transition: all .3s ease-in-out;
+}
+
+li:first-child{
+    margin-top: 0;
+}
+
+li:last-child{
+    margin-bottom: 0;
+}
+
+ul:hover li:not(:hover){
+    opacity: .6;
+}
+
+li:hover{
+    box-shadow: 0 0 5px 1px rgb(209, 102, 209);
+}
+
+.description{
+    font-weight: 500;
+    letter-spacing: .5px;
+    color: red;
+}
+
+p:first-child{
+    padding: 1rem .5rem .2rem .5rem;
+    color: #e7e7e7;
+}
+
+p:last-child{
+    padding: .2rem .5rem 1rem .5rem;
+}
+
+a{
+    color: aqua;
+    background-color: darkblue;
+    transition: all .3s ease-in-out;
+}
+
+.btnTop{
+    background-color: purple;
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    box-shadow: 0 0 8px #e17edc;
+    font-size: 1.2rem;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .3s ease-in-out;
+    animation: btnTopAnimationHidden .3s ease-in-out backwards;
+}
+
+.btnTop.show{
+    visibility: visible;
+    opacity: 1;
+    animation: btnTopAnimationVisible .3s ease-in-out backwards;
+}
+
+@keyframes btnTopAnimationVisible {
+    from{transform: scale(0);}
+    to{transform: scale(1);}
+}
+@keyframes btnTopAnimationHidden {
+    from{transform: scale(1);}
+    to{transform: scale(0);}
+}
+
+@media screen and (max-width: 620px) {
+    .inputBtnSubmit{
+        width: 65%;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    h1{
+        font-size: 7vw;
+    }
+
+    .inputBtnSubmit{
+        width: 80%;
+    }
+
+    button{
+        padding: .6rem .8rem;
+    }
+
+    li{
+        text-align: left;
+    }
+
+}
+
+@media screen and (max-width: 365px) {
+    form{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .inputBtnSubmit{
+        width: 100%;
+    }
+}
